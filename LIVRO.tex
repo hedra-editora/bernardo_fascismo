@@ -61,6 +61,27 @@
 \setlength{\parindent}{\mystoreparindent}
 }
 
+%------------------------------------------ INCLUIR EPIGRAFE EM PART
+\let\oldafterpartskip\afterpartskip 
+
+\newcommand\partepigraph[3][60pt]{
+\renewcommand{\afterpartskip}{
+\vskip#1
+\epigraph{#2}{#3}
+\vfil}
+}
+\newcommand\removeepigraph{
+  \let\afterpartskip\oldafterpartskip}
+
+%---------------------------------------GERAR BLANK PAGE
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{0}%
+    \newpage}
+
 \begin{document}
 
 \include{INPUTS}
